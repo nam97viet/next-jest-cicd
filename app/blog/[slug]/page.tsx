@@ -1,16 +1,18 @@
-type Params = {
+import { use } from 'react';
+
+interface PageProps {
   params: Promise<{
     slug: string;
   }>;
-};
+}
 
-export async function generateMetadata({ params }: Params) {
+export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   return { title: `Post: ${slug}` };
 }
 
-export default async function Page({ params }: Params) {
-  const { slug } = await params;
+export default function Page({ params }: PageProps) {
+  const { slug } = use(params);
   return <>
   <h1>Slug: {slug}</h1>
   <p>HoleText</p>
