@@ -25,11 +25,19 @@ Make sure you're using Node.js 20.0.0 or higher. Update your CI/CD environment t
 
 ### CI/CD Configuration
 
-This project includes:
-- `.github/workflows/ci.yml` - GitHub Actions workflow for CI/CD
+This project includes multiple CI/CD workflow options:
+- `.github/workflows/ci.yml` - Primary workflow using pnpm (recommended for Next.js monorepo)
+- `.github/workflows/ci-npm.yml` - Alternative workflow using npm
 - `.nvmrc` - Node.js version specification
-- `package.json` - Engines field specifies Node.js requirements
+- `package.json` - Engines field specifies Node.js requirements and updated dependencies for React 19
 - `vercel.json` - Vercel deployment configuration
+
+### Dependency Updates
+
+This project has been updated to support React 19:
+- `@testing-library/react@^16.1.0` - Updated for React 19 compatibility
+- `@types/react@^19.0.2` and `@types/react-dom@^19.0.2` - React 19 TypeScript types
+- Other dependencies updated to latest compatible versions
 
 ## Deploy your own
 
