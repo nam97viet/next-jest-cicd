@@ -6,6 +6,39 @@ This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScri
 
 > **Note:** Since tests can be co-located alongside other files inside the App Router, we have placed those tests in `app/` to demonstrate this behavior (which is different than `pages/`). You can still place all tests in `__tests__` if you prefer.
 
+## Node.js Requirements
+
+This project requires **Node.js 20.0.0 or higher** to run properly.
+
+- **Current recommended version**: Node.js 20.x or 22.x
+- **Minimum version**: Node.js 20.0.0
+
+### Troubleshooting Node.js Version
+
+If you see an error like:
+
+```
+You are using Node.js 16.20.2. For Next.js, Node.js version "^18.18.0 || ^19.8.0 || >= 20.0.0" is required.
+```
+
+Make sure you're using Node.js 20.0.0 or higher. Update your CI/CD environment to use the correct Node.js version.
+
+### CI/CD Configuration
+
+This project includes multiple CI/CD workflow options:
+- `.github/workflows/ci.yml` - Primary workflow using pnpm (recommended for Next.js monorepo)
+- `.github/workflows/ci-npm.yml` - Alternative workflow using npm
+- `.nvmrc` - Node.js version specification
+- `package.json` - Engines field specifies Node.js requirements and updated dependencies for React 19
+- `vercel.json` - Vercel deployment configuration
+
+### Dependency Updates
+
+This project has been updated to support React 19:
+- `@testing-library/react@^16.1.0` - Updated for React 19 compatibility
+- `@types/react@^19.0.2` and `@types/react-dom@^19.0.2` - React 19 TypeScript types
+- Other dependencies updated to latest compatible versions
+
 ## Deploy your own
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-jest&project-name=with-jest&repository-name=with-jest)

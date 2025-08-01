@@ -1,13 +1,19 @@
-type Params = {
-  params: {
+interface PageProps {
+  params: Promise<{
     slug: string;
-  };
-};
-
-export async function generateMetadata({ params }: Params) {
-  return { title: `Post: ${params.slug}` };
+  }>;
 }
 
-export default function Page({ params }: Params) {
-  return <><h1>Slug: {params.slug}</h1><p>HoleText</p></>;
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  return { title: `Post: ${slug}` };
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+  return <>
+  <h1>Slug: {slug}</h1>
+  <p>HoleText</p>
+  <p>Welcome to Houston</p>
+  </>;
 }
